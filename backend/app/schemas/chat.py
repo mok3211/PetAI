@@ -1,5 +1,6 @@
 from pydantic import BaseModel
 from datetime import datetime
+from typing import Optional
 
 class ChatRequest(BaseModel):
     pet_id: int
@@ -10,8 +11,7 @@ class ChatMessageRead(BaseModel):
     pet_id: int
     role: str
     content: str
-    created_at: datetime | None = None
+    created_at: Optional[datetime] = None
 
     class Config:
         from_attributes = True
-

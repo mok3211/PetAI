@@ -8,7 +8,9 @@ from ....schemas.order import OrderRead
 
 router = APIRouter()
 
-def _get_cart(db: Session, user_id: int) -> Cart | None:
+from typing import Optional
+
+def _get_cart(db: Session, user_id: int) -> Optional[Cart]:
     return db.query(Cart).filter(Cart.user_id == user_id).first()
 
 @router.post("/", response_model=OrderRead, status_code=status.HTTP_201_CREATED)

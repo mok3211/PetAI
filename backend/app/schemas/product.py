@@ -1,17 +1,18 @@
 from pydantic import BaseModel
+from typing import Optional
 
 class ProductCreate(BaseModel):
     name: str
-    description: str | None = None
-    image_url: str | None = None
+    description: Optional[str] = None
+    image_url: Optional[str] = None
     price_cents: int
     stock: int = 0
 
 class ProductRead(BaseModel):
     id: int
     name: str
-    description: str | None = None
-    image_url: str | None = None
+    description: Optional[str] = None
+    image_url: Optional[str] = None
     price_cents: int
     stock: int
 
@@ -19,8 +20,8 @@ class ProductRead(BaseModel):
         from_attributes = True
 
 class ProductUpdate(BaseModel):
-    name: str | None = None
-    description: str | None = None
-    image_url: str | None = None
-    price_cents: int | None = None
-    stock: int | None = None
+    name: Optional[str] = None
+    description: Optional[str] = None
+    image_url: Optional[str] = None
+    price_cents: Optional[int] = None
+    stock: Optional[int] = None

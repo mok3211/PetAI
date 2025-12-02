@@ -6,7 +6,7 @@ from pathlib import Path
 router = APIRouter()
 
 @router.post("/")
-async def upload(file: UploadFile = File(...), request: Request):
+async def upload(request: Request, file: UploadFile = File(...)):
     ext = os.path.splitext(file.filename)[1]
     name = f"{uuid4().hex}{ext}"
     path = Path("backend/uploads") / name

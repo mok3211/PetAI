@@ -9,3 +9,5 @@ class User(Base):
     nickname = Column(String, nullable=True)
     avatar_url = Column(String, nullable=True)
     is_admin = Column(Boolean, nullable=False, default=False)
+    provider = Column(String, nullable=True)
+    provider_id = Column(String, unique=True, index=True, nullable=True)
